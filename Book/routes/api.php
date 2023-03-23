@@ -19,3 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/books', 'App\Http\Controllers\Api\V1\BookController@index');
+Route::get('/books/{id}', 'App\Http\Controllers\Api\V1\BookController@show');
+
+Route::delete('/books/{id}', 'App\Http\Controllers\Api\V1\BookController@destroy');
+Route::post('/books', 'App\Http\Controllers\Api\V1\BookController@create');
+Route::put('/books/{id}', 'App\Http\Controllers\Api\V1\BookController@update');

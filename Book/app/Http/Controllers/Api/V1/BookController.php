@@ -19,4 +19,28 @@ class BookController extends Controller
         $book = Book::find($id);
         return response()->json($book);
     }
+
+    public function destroy($id){
+        $book = Book::find($id);
+        $book->delete();
+        return response()->json('deleted');
+    }
+
+    public function create(Request $request){
+        $book = new Book;
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->description = $request->description;
+        $book->save();
+        return response()->json($book);
+    }
+
+    public function update(Request $request, $id){
+        $book = Book::find($id);
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->description = $request->description;
+        $book->save();
+        return response()->json($book);
+    }
 }
