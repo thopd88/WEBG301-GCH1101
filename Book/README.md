@@ -20,3 +20,8 @@ php artisan migrate
 -> Edit Routes
 
 -> Finalise views: bookdetail.blade.php ; booklist.blade.php
+
+
+------------------------------
+php artisan make:controller Api/V1/BookController
+Request to: http://127.0.0.1:8000/api/books/
