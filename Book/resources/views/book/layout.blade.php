@@ -27,6 +27,18 @@
         
   </main>
   <footer>
+    <div class="container">
+      @if ((session('success')))
+        <div class="alert alert-success" role="alert">
+          {{ session('success') }}
+        </div>          
+      @endif
+      @if ((session('error')))
+        <div class="alert alert-danger" role="alert">
+          {{ session('error') }}
+        </div>
+      @endif
+    </div>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

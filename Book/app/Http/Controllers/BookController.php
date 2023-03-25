@@ -39,9 +39,12 @@ class BookController extends Controller
         $book = new Book();
         $book->title = $request->title;
         $book->author = $request->author;
+        if ($request->title == ''){
+            return redirect('/books/create')->with('error', 'Title is required.');
+        }
         $book->description = $request->description;
         $book->save();
-        return redirect('/books');
+        return redirect('/books')->with('success', 'Book created successfully.');
     }
 
     /**
@@ -82,7 +85,7 @@ class BookController extends Controller
         $book->author = $request->author;
         $book->description = $request->description;
         $book->save();
-        return redirect('/books');
+        return redirect('/books')->with('success', 'Book updated successfully.');
     }
 
     /**
@@ -95,6 +98,6 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $book->delete();
-        return redirect('/books');
+        return redirect('/books')->with('success', 'Book deleted successfully.');
     }
 }
