@@ -28,7 +28,7 @@
                         <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/books">Book List</a>
+                        <a class="nav-link" href="{{ url('/books')}}">Book List</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
