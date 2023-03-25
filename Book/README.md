@@ -30,4 +30,4 @@ Request to: http://127.0.0.1:8000/api/books/
 ------------------------------
 CRUD controller creation:
 
-php artisan make:controller Api/V1/BookController --resource
+php artisan make:controller BookController --resource
