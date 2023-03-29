@@ -11,6 +11,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -20,6 +21,11 @@
                         <th scope="row">{{ $book->id }}</th>
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->author }}</td>
+                        <td>
+                            @foreach ($book->categories as $category)
+                                {{ $category->name }} <br />
+                            @endforeach
+                        </td>
                         <td>
                             <a href="{{ route('books.show', $book->id) }}" class="btn btn-primary">Show</a>
                             <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Edit</a>
