@@ -11,4 +11,9 @@ class Book extends Model
     protected $table = 'books';
     protected $primaryKey = 'id';
     protected $fillable = ['title', 'author', 'description'];
+
+    public function getCategory()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

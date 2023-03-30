@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::with('getCategory')->get();
         return view('book.booklist', ['books' => $books]);
     }
 
