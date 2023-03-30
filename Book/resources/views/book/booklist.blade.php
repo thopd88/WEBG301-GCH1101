@@ -22,9 +22,11 @@
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->author }}</td>
                         <td>
-                            <a href="{{ route('categories.show', $book->getCategory->id) }}">
-                                {{ $book->getCategory->name }}
-                            </a>
+                            @foreach ($book->getCategory as $category)
+                                <a href="{{ route('categories.show', $category->id) }}">
+                                    {{ $category->name }}
+                                </a><br>
+                            @endforeach
                         </td>
                         <td>
                             <a href="{{ route('books.show', $book->id) }}" class="btn btn-primary">Show</a>

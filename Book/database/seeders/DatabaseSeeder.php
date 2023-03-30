@@ -18,12 +18,16 @@ class DatabaseSeeder extends Seeder
         $category1 = Category::create([
             'name' => 'Science Fiction',
         ]);
+        $category2 = Category::create([
+            'name' => 'Science Fiction 2',
+        ]);
         $book1 = Book::create([
             'title' => 'Dune',
             'author' => 'Frank Herbert',
-            'category_id' => $category1->id,
             'description' => 'Dune is a 1965 science fiction novel by American author Frank Herbert, originally published as two separate serials in Analog magazine. It tied with Roger Zelazny\'s This Immortal for the Hugo Award in 1966, and it won the inaugural Nebula Award for Best Novel. The novel is frequently cited as the best-selling science fiction novel ever published, selling over 20 million copies since its original publication. It is often cited as the best-selling science fiction novel of all time.',
         ]);
+        $book1->getCategory()->attach($category1->id);
+        $book1->getCategory()->attach($category2->id);
         
     }
 }
