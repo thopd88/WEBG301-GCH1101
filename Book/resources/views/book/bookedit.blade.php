@@ -20,6 +20,16 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="3">{{ $book->description }}</textarea>
             </div>
+            <div class="form-group">
+                <label for="category_id">Category</label>
+                <select class="form-control" id="category_id" name="category_id">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $book->category_id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

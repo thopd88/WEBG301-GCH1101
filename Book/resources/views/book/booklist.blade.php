@@ -21,7 +21,11 @@
                         <th scope="row">{{ $book->id }}</th>
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->author }}</td>
-                        <td>{{ $book->getCategory->name }}</td>
+                        <td>
+                            <a href="{{ route('categories.show', $book->getCategory->id) }}">
+                                {{ $book->getCategory->name }}
+                            </a>
+                        </td>
                         <td>
                             <a href="{{ route('books.show', $book->id) }}" class="btn btn-primary">Show</a>
                             <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Edit</a>

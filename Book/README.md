@@ -53,11 +53,16 @@ php artisan migrate
 
 
 ------------------------------
+Session 7:
+
 php artisan make:controller Api/V1/BookController
 
 Request to: http://127.0.0.1:8000/api/books/
 
 ------------------------------
+
+Session 10:
+
 CRUD controller creation:
 
 php artisan make:controller BookController --resource

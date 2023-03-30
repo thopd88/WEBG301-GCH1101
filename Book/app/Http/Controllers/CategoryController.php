@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
-        return view('book.booklist', ['books' => $books]);
+        $categories = Category::with('getBooks')->get();
+        return view('category.index', ['categories' => $categories]);
     }
 
     /**
@@ -26,7 +25,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book.bookcreate');
+        return view('category.create');
     }
 
     /**
@@ -37,15 +36,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = new Book();
-        $book->title = $request->title;
-        $book->author = $request->author;
-        if ($request->title == ''){
-            return redirect('/books/create')->with('error', 'Title is required.');
+        $category = new Category();
+        $category->name = $request->name;
+        if ($request->name == ''){
+            return redirect('/categories/create')->with('error', 'Name is required.');
         }
-        $book->description = $request->description;
-        $book->save();
-        return redirect('/books')->with('success', 'Book created successfully.');
+        $category->save();
+        return redirect('/categories')->with('success', 'Category created successfully.');
     }
 
     /**
@@ -56,8 +53,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::find($id);
-        return view('book.bookdetail', ['book' => $book]);
+        $category = Category::with('getBooks')->find($id);
+        return view('category.show', ['category' => $category]);
     }
 
     /**
@@ -68,12 +65,8 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::find($id);
-        $categories = Category::all();
-        return view('book.bookedit', [
-            'book' => $book, 
-            'categories' => $categories
-        ]);
+        $category = Category::find($id);
+        return view('category.edit', ['category' => $category]);
     }
 
     /**
@@ -85,13 +78,13 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $book = Book::find($id);
-        $book->title = $request->title;
-        $book->author = $request->author;
-        $book->description = $request->description;
-        $book->category_id = $request->category_id;
-        $book->save();
-        return redirect('/books')->with('success', 'Book updated successfully.');
+        $category = Category::find($id);
+        $category->name = $request->name;
+        if ($request->name == ''){
+            return redirect('/categories/create')->with('error', 'Name is required.');
+        }
+        $category->save();
+        return redirect('/categories')->with('success', 'Category updated successfully.');
     }
 
     /**
@@ -102,8 +95,8 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::find($id);
-        $book->delete();
-        return redirect('/books')->with('success', 'Book deleted successfully.');
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/categories')->with('success', 'Category deleted successfully.');
     }
 }
