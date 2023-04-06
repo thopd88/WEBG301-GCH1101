@@ -6,7 +6,9 @@ namespace Database\Seeders;
 
 use App\Models\Cars;
 use App\Models\Customers;
+use App\Models\Parts;
 use App\Models\Sales;
+use App\Models\Suppliers;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -63,6 +65,40 @@ class DatabaseSeeder extends Seeder
         );
 
         $sale1->save();
+
+        $sale2 = new Sales(
+            [
+                'Discount' => 0.2,
+                'CarId' => $car2->Id,
+                'CustomerId' => $customer2->Id,
+            ]
+        );
+
+        $sale2->save();
+
+        $supplier1 = new Suppliers(
+            [
+                'Name' => 'Supplier 1',
+                'IsImporter' => true
+            ]
+        );
+
+        $supplier1->save();
+
+        $carpart1 = new Parts(
+            [
+                'Name' => 'Engine',
+                'Price' => 1000,
+                'Quantity' => 10,
+                'SupplierId' => $supplier1->Id,
+            ]
+        );
+
+        $carpart1->save();
+
+        $car1->parts()->attach($carpart1->Id);
+
+
 
 
     }
