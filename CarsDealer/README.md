@@ -22,3 +22,14 @@ php artisan make:migration create_car_part_table
 After that, you need to edit the migration file and models to add the relationships between them.
 ----------------------------------
 3. Create Controllers:
+
+php artisan make:controller CarsController --resource
+
+php artisan make:controller CustomersController --resource
+
+php artisan make:controller SalesController --resource
+
+php artisan make:controller SuppliersController --resource
+
+php artisan make:controller PartsController --resource
+
