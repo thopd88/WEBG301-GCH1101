@@ -15,13 +15,13 @@
 
 <body>
   <header>
-    @yield('header')
+    @include('partials.header')
   </header>
   <main>
     @yield('content')
   </main>
   <footer>
-    @yield('footer')
+    @include('partials.footer')
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
