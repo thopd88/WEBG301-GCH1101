@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\PartsController;
+use App\Http\Controllers\SuppliersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('cars', CarsController::class);
+Route::resource('customers', CustomersController::class);
+Route::resource('sales', SalesController::class);
+Route::resource('parts', PartsController::class);
+Route::resource('suppliers', SuppliersController::class);
