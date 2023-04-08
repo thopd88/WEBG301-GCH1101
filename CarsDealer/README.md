@@ -3,6 +3,10 @@
 
 composer create-project laravel/laravel CarsDealer
 
+Add Debugbar:
+
+composer require barryvdh/laravel-debugbar --dev
+
 ---------------------------------
 
 2. Create Models:
