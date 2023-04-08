@@ -99,7 +99,15 @@ class DatabaseSeeder extends Seeder
         $car1->parts()->attach($carpart1->id);
 
 
+        $user1 = new \App\Models\User(
+            [
+                'name' => 'alex',
+                'email' => 'alex@alex.com',
+            ]
+        );
 
+        $user1->password = bcrypt('alex');
+        $user1->save();
 
     }
 }

@@ -16,18 +16,17 @@ class checkLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // nếu user đã đăng nhập
+        // check login status
         if (Auth::check())
         {
             $user = Auth::user();
-            // nếu level =1 (admin), status = 1 (actived) thì cho qua.
+            
             if ($user->name !== '' )
             {
                 return $next($request);
             }
             else
             {
-                // Auth::logout();
                 return redirect()->route('login');
             }
         } else

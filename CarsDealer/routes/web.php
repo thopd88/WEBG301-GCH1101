@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::middleware([checkLogin::class])->group(function () {
-    Route::resource('cars', CarsController::class);
+    Route::resource('cars', CarsController::class);    
     Route::resource('customers', CustomersController::class);
     Route::resource('sales', SalesController::class);
     Route::resource('parts', PartsController::class);
@@ -34,9 +34,10 @@ Route::middleware([checkLogin::class])->group(function () {
 });
 
 
+
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
+// Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');

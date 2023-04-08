@@ -110,3 +110,35 @@ php artisan migrate
 php artisan db:seed
 
 ------------------------------------
+
+- Authentication:
+
+php artisan make:middleware checkLogin
+
+- Create Views:
+
+auth.login
+
+auth.register
+
+- Create Controller
+
+php artisan make:controller Auth\AuthController
+
+- Create Routes:
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+Route::post('/login', [AuthController::class, 'postLogin'])->name('login.post');
+
+Route::get('/register', [AuthController::class, 'registration'])->name('register');
+
+Route::post('/register', [AuthController::class, 'postRegistration'])->name('register.post');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+- Group Routes to be included in the middleware:
+
+Route::group(['middleware' => 'checkLogin'], function () {});
+
+------------------------------------
