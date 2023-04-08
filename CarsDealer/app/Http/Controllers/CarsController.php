@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cars;
+use App\Models\Parts;
 use Illuminate\Http\Request;
 
 class CarsController extends Controller
@@ -13,6 +14,7 @@ class CarsController extends Controller
     public function index()
     {
         $cars = Cars::all();
+        // dd($cars);
         return view('cars.index', ['cars' => $cars]);
     }
 
@@ -21,7 +23,8 @@ class CarsController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $parts = Parts::all();
+        return view('cars.create', ['parts' => $parts]);
     }
 
     /**
@@ -34,6 +37,7 @@ class CarsController extends Controller
         $car->Model = $request->input('Model');
         $car->TravelledDistance = $request->input('TravelledDistance');
         $car->save();
+        $car->parts()->attach($request->input('parts'));
         return redirect()->route('cars.index');
     }
 
@@ -43,6 +47,7 @@ class CarsController extends Controller
     public function show(string $id)
     {
         $car = Cars::find($id);
+        // dd($car);
         return view('cars.show', ['car' => $car]);
     }
 
@@ -52,7 +57,8 @@ class CarsController extends Controller
     public function edit(string $id)
     {
         $car = Cars::find($id);
-        return view('cars.edit', ['car' => $car]);
+        $parts = Parts::all();
+        return view('cars.edit', ['car' => $car, 'parts' => $parts]);
     }
 
     /**
@@ -65,6 +71,7 @@ class CarsController extends Controller
         $car->Model = $request->input('Model');
         $car->TravelledDistance = $request->input('TravelledDistance');
         $car->save();
+        $car->parts()->sync($request->input('parts'));
         return redirect()->route('cars.index');
     }
 

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('title', 'Create Customer')
-@section('header')
-    @include('partials.header')
 @section('content')
     <form action="{{ route('customers.store') }}" method="POST">
         @csrf

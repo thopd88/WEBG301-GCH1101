@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parts;
+use App\Models\Suppliers;
 use Illuminate\Http\Request;
 
 class PartsController extends Controller
@@ -21,7 +22,8 @@ class PartsController extends Controller
      */
     public function create()
     {
-        return view('parts.create');
+        $suppliers = Suppliers::all();
+        return view('parts.create')->with('suppliers', $suppliers);
     }
 
     /**
@@ -53,7 +55,8 @@ class PartsController extends Controller
     public function edit(string $id)
     {
         $part = Parts::find($id);
-        return view('parts.edit', ['part' => $part]);
+        $suppliers = Suppliers::all();
+        return view('parts.edit', ['part' => $part, 'suppliers' => $suppliers]);
     }
 
     /**

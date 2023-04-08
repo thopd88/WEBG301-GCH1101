@@ -31,7 +31,7 @@ class SuppliersController extends Controller
     {
         $supplier = new Suppliers();
         $supplier->Name = $request->input('Name');
-        $supplier->IsImporter = $request->input('IsImporter');
+        $supplier->IsImporter = $request->input('IsImporter')??0;
         $supplier->save();
         return redirect()->route('suppliers.index');
     }

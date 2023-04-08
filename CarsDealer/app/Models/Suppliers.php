@@ -10,7 +10,7 @@ class Suppliers extends Model
 {
     use HasFactory;
     protected $table = 'suppliers';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'Name',
         'IsImporter',
@@ -18,6 +18,6 @@ class Suppliers extends Model
 
     public function Parts(): HasMany
     {
-        return $this->hasMany(Parts::class, 'SupplierId', 'Id');
+        return $this->hasMany(Parts::class);
     }
 }

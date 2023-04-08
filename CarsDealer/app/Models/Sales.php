@@ -10,7 +10,7 @@ class Sales extends Model
 {
     use HasFactory;
     protected $table = 'sales';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'Discount',
         'CarId',
@@ -19,11 +19,11 @@ class Sales extends Model
 
     public function Customer(): BelongsTo
     {
-        return $this->belongsTo(Customers::class, 'CustomerId', 'Id');
+        return $this->belongsTo(Customers::class);
     }
 
     public function Car(): BelongsTo
     {
-        return $this->belongsTo(Cars::class, 'CarId', 'Id');
+        return $this->belongsTo(Cars::class);
     }
 }

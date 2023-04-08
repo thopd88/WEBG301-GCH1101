@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('title', 'Edit Sale')
-@section('header')
-    @include('partials.header')
 @section('content')
     <form method="POST" action="/sales/{{ $sale->id }}">
         @csrf

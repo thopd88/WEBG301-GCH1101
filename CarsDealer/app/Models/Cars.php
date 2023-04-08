@@ -4,21 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Cars extends Model
 {
     use HasFactory;
     protected $table = 'cars';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'Make',
         'Model',
         'TravelledDistance',
     ];
 
-    public function Parts(): BelongsToMany
+    public function Parts()
     {
-        return $this->belongsToMany(Parts::class, 'car_part', 'CarId', 'PartId');
+        return $this->belongsToMany(Parts::class, 'cars_parts', 'car_id', 'part_id');
     }
+
+    public function Sale()
+    {
+        return $this->hasOne(Sales::class, 'car_id', 'id');
+    }
+
 }

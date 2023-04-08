@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->date('BirthDate');
-            $table->boolean('IsYoungDriver');
+            $table->string('name');
+            $table->date('birthDate');
+            $table->boolean('isYoungDriver');
             $table->timestamps();
         });
     }

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('title', 'Sale Details')
-@section('header')
-    @include('partials.header')
 @section('content')
     <table>
         <thead>

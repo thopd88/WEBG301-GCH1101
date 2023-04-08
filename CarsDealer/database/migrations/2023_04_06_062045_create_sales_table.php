@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->decimal('Discount', 18, 2);
-            $table->foreignId('CarId')->constrained('cars');
-            $table->foreignId('CustomerId')->constrained('customers');
+            $table->decimal('discount', 18, 2);
+            $table->foreignId('car_id')->constrained('cars');
+            $table->foreignId('customer_id')->constrained('customers');
             $table->timestamps();
         });
     }

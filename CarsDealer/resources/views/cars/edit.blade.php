@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('title', 'Edit Car')
-@section('header')
-    @include('partials.header')
 @section('content')
     <form method="POST" action="/cars/{{ $car->id }}">
         @csrf
@@ -17,6 +15,14 @@
         <div>
             <label for="TravelledDistance">Travelled Distance</label>
             <input type="text" name="TravelledDistance" id="TravelledDistance" value="{{ $car->TravelledDistance }}">
+        </div>
+        <div>
+            <label for="Parts">Parts</label>
+            <select name="Parts" id="Parts">
+                @foreach($parts as $part)
+                    <option value="{{ $part->id }}" {{ $car->Parts->contains($part) ? 'selected' : '' }}>{{ $part->Name }}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <button type="submit">Update</button>

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('title', 'Edit Customer')
-@section('header')
-    @include('partials.header')
 @section('content')
     <form action="{{ route('customers.update', $customer->id) }}" method="POST">
         @csrf

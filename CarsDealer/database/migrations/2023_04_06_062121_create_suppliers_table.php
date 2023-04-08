@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->boolean('IsImporter');
+            $table->string('name');
+            $table->boolean('isImporter');
             $table->timestamps();
         });
     }

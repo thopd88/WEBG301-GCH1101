@@ -11,7 +11,7 @@ class Parts extends Model
 {
     use HasFactory;
     protected $table = 'parts';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'Name',
         'Price',
@@ -20,11 +20,11 @@ class Parts extends Model
 
     public function Supplier(): BelongsTo
     {
-        return $this->belongsTo(Suppliers::class, 'SupplierId', 'Id');
+        return $this->belongsTo(Suppliers::class);
     }
 
     public function Cars(): BelongsToMany
     {
-        return $this->belongsToMany(Cars::class, 'car_part', 'PartId', 'CarId');
+        return $this->belongsToMany(Cars::class);
     }
 }

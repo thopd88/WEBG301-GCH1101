@@ -1,31 +1,12 @@
 @extends('layouts.app')
-@section('title', 'Car Details')
+@section('title', 'Parts')
 @section('content')
-    Make: {{ $car->make }}
-    <br/>
-    Model: {{ $car->model }}
-    <br/>
-    Travelled Distance: {{ $car->travelledDistance }}   
-    <br/>
-    <a href="/cars/{{ $car->id }}/edit" class="btn btn-primary">Edit</a>
-
-    <form method="POST" action="/cars/{{ $car->id }}">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-
-    </form>
-    <h1>Related Sale</h1>
-    @if ($car->sale)
-        <p>Discount: {{ $car->sale->discount }}</p>
-        <p>Customer: {{ $car->sale->Customer->name }}</p>
-        
-    @endif
-
-    <h1>Related Parts</h1>
-    <a href="{{ route('parts.create') }}">Create</a>
-    <table class="table table-striped">
-        <thead>
+    <div>
+        <a href="{{ route('parts.create') }}">Create Part</a>
+    </div>
+    <div>
+        <table>
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Price</th>
@@ -33,9 +14,9 @@
                 <th>Supplier</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-            @foreach($car->parts as $part)
+            </thead>
+            <tbody>
+            @foreach($parts as $part)
                 <tr>
                     <td>{{ $part->name }}</td>
                     <td>{{ $part->price }}</td>
@@ -51,8 +32,7 @@
                     </td>
                 </tr>
             @endforeach
-        </tbody>
-    </table>
-    
-
+            </tbody>
+        </table>
+    </div>
 @endsection

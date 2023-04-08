@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->decimal('Price', 18, 2);
-            $table->integer('Quantity');
-            $table->foreignId('SupplierId')->constrained('suppliers');
+            $table->string('name');
+            $table->decimal('price', 18, 2);
+            $table->integer('quantity');
+            $table->foreignId('supplier_id')->constrained('suppliers');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@ class Customers extends Model
 {
     use HasFactory;
     protected $table = 'customers';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'Name',
         'BirthDate',
@@ -18,6 +18,6 @@ class Customers extends Model
     ];
     public function Sales(): HasMany
     {
-        return $this->hasMany(Sales::class, 'CustomerId', 'Id');
+        return $this->hasMany(Sales::class);
     }
 }

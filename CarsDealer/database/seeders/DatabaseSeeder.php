@@ -59,8 +59,8 @@ class DatabaseSeeder extends Seeder
         $sale1 = new Sales(
             [
                 'Discount' => 0.1,
-                'CarId' => $car1->Id,
-                'CustomerId' => $customer1->Id,
+                'car_id' => $car1->id,
+                'customer_id' => $customer1->id,
             ]
         );
 
@@ -69,8 +69,8 @@ class DatabaseSeeder extends Seeder
         $sale2 = new Sales(
             [
                 'Discount' => 0.2,
-                'CarId' => $car2->Id,
-                'CustomerId' => $customer2->Id,
+                'car_id' => $car2->id,
+                'customer_id' => $customer2->id,
             ]
         );
 
@@ -90,13 +90,13 @@ class DatabaseSeeder extends Seeder
                 'Name' => 'Engine',
                 'Price' => 1000,
                 'Quantity' => 10,
-                'SupplierId' => $supplier1->Id,
+                'Supplier_id' => $supplier1->id,
             ]
         );
 
         $carpart1->save();
 
-        $car1->parts()->attach($carpart1->Id);
+        $car1->parts()->attach($carpart1->id);
 
 
 
