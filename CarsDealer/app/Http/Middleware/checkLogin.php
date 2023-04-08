@@ -21,12 +21,13 @@ class checkLogin
         {
             $user = Auth::user();
             
-            if ($user->name !== '' )
+            if ($user->role == 'admin' )
             {
                 return $next($request);
             }
             else
             {
+                Auth::logout();
                 return redirect()->route('login');
             }
         } else

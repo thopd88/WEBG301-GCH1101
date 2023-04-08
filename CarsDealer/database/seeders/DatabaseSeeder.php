@@ -103,11 +103,23 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'alex',
                 'email' => 'alex@alex.com',
+                'role' => 'admin',
             ]
         );
 
         $user1->password = bcrypt('alex');
         $user1->save();
+
+        $user2 = new \App\Models\User(
+            [
+                'name' => 'user',
+                'email' => 'user@alex.com',
+                'role' => 'user',
+            ]
+        );
+
+        $user2->password = bcrypt('user');
+        $user2->save();
 
     }
 }
