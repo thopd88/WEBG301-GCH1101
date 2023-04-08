@@ -36,35 +36,35 @@ php artisan make:controller PartsController --resource
 ------------------------------------
 4. Create Views:
 
-php artisan make:view cars.index
+cars.index
 
-php artisan make:view cars.create
+cars.create
 
-php artisan make:view cars.edit
+cars.edit
 
-php artisan make:view customers.index
+customers.index
 
-php artisan make:view customers.create
+customers.create
 
-php artisan make:view customers.edit
+customers.edit
 
-php artisan make:view sales.index
+sales.index
 
-php artisan make:view sales.create
+sales.create
 
-php artisan make:view sales.edit
+sales.edit
 
-php artisan make:view suppliers.index
+suppliers.index
 
-php artisan make:view suppliers.create
+suppliers.create
 
-php artisan make:view suppliers.edit
+suppliers.edit
 
-php artisan make:view parts.index
+parts.index
 
-php artisan make:view parts.create
+parts.create
 
-php artisan make:view parts.edit
+parts.edit
 
 ------------------------------------
 
