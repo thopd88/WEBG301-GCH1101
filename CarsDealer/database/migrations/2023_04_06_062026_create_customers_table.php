@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('birthDate');
+            $table->string('image')->nullable();
             $table->boolean('isYoungDriver');
             $table->timestamps();
         });

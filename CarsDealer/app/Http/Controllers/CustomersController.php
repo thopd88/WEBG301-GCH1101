@@ -29,9 +29,18 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $customer = new Customers();
+
         $customer->Name = $request->input('Name');
         $customer->BirthDate = $request->input('BirthDate');
+
+        $image = $request->file('Image')->store('images', 'public');
+        $customer->Image = $image;
+
         $customer->IsYoungDriver = $request->input('IsYoungDriver');
         $customer->save();
         return redirect()->route('customers.index');

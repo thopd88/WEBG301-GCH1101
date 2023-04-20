@@ -11,10 +11,13 @@
         </thead>
         <tbody>
             @foreach ($customers as $customer)
+                
                 <tr>
                     <td>{{ $customer->Name }}</td>
                     <td>{{ $customer->BirthDate }}</td>
+                    <td>{{ Storage::url($customer->Image) }}</td>
                     <td>{{ $customer->IsYoungDriver }}</td>
+
                 </tr>
             @endforeach
         </tbody>

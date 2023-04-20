@@ -14,6 +14,7 @@ class Customers extends Model
     protected $fillable = [
         'Name',
         'BirthDate',
+        'Image',
         'IsYoungDriver',
     ];
     public function Sales(): HasMany
